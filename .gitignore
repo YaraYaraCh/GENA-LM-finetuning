@@ -2,20 +2,14 @@
 __pycache__/
 *.pyc
 
-# Logs
-*.log
-
-# Checkpoints
-model_checkpoint/
-
-# TensorBoard
+# Logs and outputs
+logs/
 runs/
+model_checkpoint/
+training*.log
 
-# Datasets
+# Data (ОЧЕНЬ ВАЖНО)
 genomes/
-sus_scrofa/
-sus_scrofa_new/
-sus_scrofa_raw/
 bos_taurus/
 canis_lupus/
 equus_caballus/
@@ -24,6 +18,10 @@ mus_musculus/
 oryctolagus_cuniculus/
 ovis_aries/
 rattus_norvegicus/
+sus_scrofa/
+sus_scrofa_new/
+sus_scrofa_raw/
 
 # Jupyter
+*.ipynb
 .ipynb_checkpoints/
