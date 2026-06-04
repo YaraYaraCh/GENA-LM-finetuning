@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Checkpoints
+model_checkpoint/
+
+# TensorBoard
+runs/
+
+# Datasets
+genomes/
+sus_scrofa/
+sus_scrofa_new/
+sus_scrofa_raw/
+bos_taurus/
+canis_lupus/
+equus_caballus/
+macaca/
+mus_musculus/
+oryctolagus_cuniculus/
+ovis_aries/
+rattus_norvegicus/
+
+# Jupyter
+.ipynb_checkpoints/
