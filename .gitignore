@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+
+# Logs and outputs
+logs/
+runs/
+model_checkpoint/
+training*.log
+
+# Data (ОЧЕНЬ ВАЖНО)
+genomes/
+bos_taurus/
+canis_lupus/
+equus_caballus/
+macaca/
+mus_musculus/
+oryctolagus_cuniculus/
+ovis_aries/
+rattus_norvegicus/
+sus_scrofa/
+sus_scrofa_new/
+sus_scrofa_raw/
+
+# Jupyter
+*.ipynb
+.ipynb_checkpoints/
