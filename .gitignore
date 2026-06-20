@@ -2,10 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
 # C extensions
 *.so
-
 # Distribution / packaging
 .Python
 build/
@@ -26,17 +24,12 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
 # PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
-
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
-
 # Unit test / coverage reports
 htmlcov/
 .tox/
@@ -50,10 +43,10 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
-
 # Jupyter Notebook
 .ipynb_checkpoints
-
+*.ipynb
+.ipynb_checkpoints/
 # Environments
 .env
 .venv
@@ -62,15 +55,29 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
 *.tar.gz
 *.zip
-data/genomes/*
 *.pyc
 .DS_Store/*
-.ipynb_checkpoints/*
 *.pth
 downstream_tasks/promoter_prediction/*.ipynb
-runs/*
 .vscode/*
+# Logs and outputs
 logs/
+runs/
+training*.log
+model_checkpoint/
+# Genome data
+data/genomes/*
+genomes/
+bos_taurus/
+canis_lupus/
+equus_caballus/
+macaca/
+mus_musculus/
+oryctolagus_cuniculus/
+ovis_aries/
+rattus_norvegicus/
+sus_scrofa/
+sus_scrofa_new/
+sus_scrofa_raw/
