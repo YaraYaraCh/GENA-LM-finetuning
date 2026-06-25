@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 # ── Конфиг под hpc-gpu (NVIDIA RTX A5000, 24 ГБ) ────────────────────────────
-VARIANT="${1:-blastp_borzoi}"   # передаём вариант первым аргументом
+VARIANT="${1:-random_borzoi}"   # передаём вариант первым аргументом
 
-GENA_ROOT="${HOME}/GENA_LM"
+GENA_ROOT="${HOME}/GENA_LM_BASE"
 DATA_ROOT="${HOME}/notebooks/burek/results/${VARIANT}"
-MODEL_PATH="${HOME}/notebooks/burek/results/runs/${VARIANT}"
-MODEL_CHECKPOINT="${GENA_ROOT}/model_checkpoint"
+MODEL_PATH="${GENA_ROOT}/runs/${VARIANT}"
+MODEL_CHECKPOINT="${GENA_ROOT}/model_checkpoint_base"
 INIT_CHECKPOINT="${HOME}/notebooks/burek/results/all_species_v8/model_best.pth"
 PYTHON="/home/chumanova/.conda/envs/gena_lm/bin/python"
 
-export PYTHONPATH="${GENA_ROOT}/GENA_LM-main/src:${HOME}/GENA_LM-main:${PYTHONPATH}"
+export PYTHONPATH="${GENA_ROOT}/model_checkpoint_base:${PYTHONPATH}"
 
 # ── Ускорялка 1: говорим CUDA использовать TF32 для matmul ───────────────────
 # На A5000 даёт ~1.5x ускорение почти без потери точности
@@ -54,10 +54,10 @@ echo "✅ Все датасеты найдены" | tee -a "${LOG_FILE}"
     --init_checkpoint  "$INIT_CHECKPOINT" \
     --tokenizer        "$MODEL_CHECKPOINT" \
     --model_cfg        "$MODEL_CHECKPOINT/config.json" \
-    --model_cls        "src.gena_lm.modeling_bert:BertForSequenceClassification" \
+    --model_cls        "modeling_bert:BertForSequenceClassification" \
     --input_seq_len    512 \
-    --batch_size       8 \
-    --iters            74000 \
+    --batch_size       16 \
+    --iters            200000 \
     --lr               1e-5 \
     --weight_decay     0.01 \
     --num_warmup_steps 1000 \
